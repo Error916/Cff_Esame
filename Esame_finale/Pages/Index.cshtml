@@ -1,0 +1,70 @@
+﻿@page
+@model IndexModel
+@using Esame_finale.Models
+@{
+    ViewData["Title"] = "Home page";
+}
+@if (Model.Grades.Length != 0) {
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th> Riassunto </th>
+                <th> </th>
+            </tr>
+        </thead>
+       
+        <tr>
+            <td> Voto più basso </td>
+            <td> @Model.Grades.OrderBy(x => x.Evaluation).First().Evaluation</td>
+        </tr> 
+        <tr>
+            <td> Voto più alto </td>
+            <td> @Model.Grades.OrderBy(x => x.Evaluation).Last().Evaluation</td>
+        </tr>
+        <tr>
+            <td> Media dei voti </td>
+            @if (@Model.Media < 6)
+            {
+                <td data-tag="ins"> @Model.Media </td>
+            }
+            else if (@Model.Media < 8)
+            {
+                <td data-tag="suf"> @Model.Media </td>
+            } 
+            else
+            {
+                <td data-tag="ecc"> @Model.Media </td>
+            }
+        </tr>
+    </table>
+</div>
+}
+
+<div>
+    <h1> <a href="/AddGrade"> Aggungi </a> </h1>
+</div>
+
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th> MATERIA </th>
+                <th> VOTO </th>
+                <th> MODIFICA </th>
+                <th> ELIMINA </th>
+            </tr>
+        </thead>  
+        @foreach(Grade g in Model.Grades)
+        {
+            <tr>
+                <td>@Model.Subjects[g.Id_subject - 1].Name</td>
+                <td>@g.Evaluation</td>
+                <td> <a href="/ChangeGrade?gradeid=@g.Id"> Modifica </a> </td>
+                <td> <a href="/DeleteGrade?gradeid=@g.Id"> Elimina </a> </td>
+            </tr>           
+        }
+    </table>
+</div>
+

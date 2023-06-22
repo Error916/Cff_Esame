@@ -1,0 +1,29 @@
+﻿@page
+@model Esame_finale.Pages.AddGradeModel
+@using Esame_finale.Models
+@{
+}
+
+<form method="post">
+    <table>
+        <tr>
+            <td>Materia</td>
+            <td>
+                <select asp-for="Grade.Id_subject">
+                    @foreach(Subject s in Model.Subjects)     
+                    {
+                        <option value="@s.Id"> @s.Name</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Voto</td>
+            <td><input asp-for="Grade.Evaluation" type="text" placeholder="Voto" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Save" /></td>
+        </tr>
+    </table>
+</form>

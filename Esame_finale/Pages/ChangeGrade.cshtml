@@ -1,0 +1,12 @@
+﻿@page
+@model Esame_finale.Pages.ChangeGradeModel
+@using Esame_finale.Models
+@{
+}
+
+<h2> Stai cambiando il voto con ID @Model.Grade.Id (@Model.Subject.Name, @Model.Grade.Evaluation)? </h2>
+
+<form method="post">
+    <input asp-for="Evaluation" type="text" placeholder="Voto" />
+    <input type="submit" value="Save" /><br/>
+</form>

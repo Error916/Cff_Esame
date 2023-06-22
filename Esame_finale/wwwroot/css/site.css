@@ -1,0 +1,53 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+table {
+    width: 100%;
+    font-size: 25px;
+    text-align: center;
+}
+
+thead {
+    font-weight: bold;
+}
+
+tr {
+    height: 50px;
+}
+
+th {
+    width: 125px;
+    border-bottom: 3px solid #83204D;
+}
+
+td {
+    width: 125px;
+}
+
+[data-tag=ins] {
+    background-color: red;
+}
+
+[data-tag=suf] {
+    background-color: yellow;
+}
+
+[data-tag=ecc] {
+    background-color: green;
+}

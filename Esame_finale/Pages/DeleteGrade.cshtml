@@ -1,0 +1,14 @@
+﻿@page
+@model Esame_finale.Pages.DeleteGradeModel
+@using Esame_finale.Models
+@{
+}
+
+<h2> Sei sicuro di voler elininare il voto con ID @Model.Grade.Id (@Model.Subject.Name, @Model.Grade.Evaluation)? </h2>
+
+<table>
+    <tr>
+        <td> <a href="/Index"> NO </a> </td>
+        <td> <a href="/DeleteGrade?gradeid=@Model.Grade.Id&confirm=true"> SI </a> </td>
+    </tr>
+</table>
